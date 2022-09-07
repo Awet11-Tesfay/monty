@@ -14,6 +14,7 @@ void _rotl(stack_t **stack, unsigned int line_number)
 	(void) line_number;
 	if (*stack == NULL || (*stack)->next == NULL)
 		return;
+
 	last = *stack;
 	while (last->next != NULL)
 		last = last->next;
@@ -23,5 +24,7 @@ void _rotl(stack_t **stack, unsigned int line_number)
 	(*stack)->prev = NULL;
 	temp->next = NULL;
 	temp->prev = last;
-	temp->prev = last;
+	last->next = temp;
+
+
 }
